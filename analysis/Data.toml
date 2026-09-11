@@ -1,0 +1,40 @@
+data_config_version = 0
+uuid = "fc16fd24-0c18-470a-920e-9f9d7361ba20"
+name = "Data"
+plugins = ["store", "defaults", "memorise"]
+
+[config.defaults.storage._]
+checksum = "auto"
+
+[["BPD Affect & Self-Esteem Forms"]]
+uuid = "fd464d6f-8c46-4a0e-905e-bc3446b8d27b"
+
+    [["BPD Affect & Self-Esteem Forms".storage]]
+    driver = "filesystem"
+    checksum = "k12:d4db226d785b9fc34fea1f8b00c42b87"
+    path = "/Users/carlbittendorf/Documents/Projects/AmbulatoryAssessmentDatasets/BPD Affect & Self-Esteem/clean/BPD Affect & Self-Esteem Forms.arrow"
+
+    [["BPD Affect & Self-Esteem Forms".loader]]
+    driver = "arrow"
+
+[["BPD Affect & Self-Esteem Questionnaires"]]
+uuid = "8338dc0f-83eb-4827-a13f-73b4b248a320"
+
+    [["BPD Affect & Self-Esteem Questionnaires".storage]]
+    driver = "filesystem"
+    checksum = "k12:fb79fcc8d2847eec8106f4d5a768f9f6"
+    path = "/Users/carlbittendorf/Documents/Projects/AmbulatoryAssessmentDatasets/BPD Affect & Self-Esteem/clean/BPD Affect & Self-Esteem Questionnaires.csv"
+
+    [["BPD Affect & Self-Esteem Questionnaires".loader]]
+    driver = "csv"
+
+[[Dataset]]
+uuid = "40087ca0-854e-423d-9c26-9923a54e481d"
+
+    [[Dataset.loader]]
+    driver = "julia"
+    path = "scripts/dataset.jl"
+    type = "DataFrames.DataFrame"
+
+        [Dataset.loader.arguments]
+        "data#BPD Affect & Self-Esteem Forms" = "📇DATASET<<BPD Affect & Self-Esteem Forms::DataFrames.DataFrame>>"

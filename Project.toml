@@ -1,10 +1,43 @@
 name = "OrnsteinUhlenbeckJumpProcess"
 uuid = "38ede3fc-707d-4fe7-b48f-4e14e7125ac2"
+version = "0.0.1"
 authors = ["Carl Bittendorf <carl.bittendorf@gmail.com> and contributors"]
-version = "0.0.0"
+
+[workspace]
+projects = ["analysis"]
+
+[deps]
+AlgebraOfGraphics = "cbdf2221-f076-402e-a563-3d30da359d67"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Chain = "8be319e6-bccf-4806-a6f7-6fae938471bc"
+Combinatorics = "861a8166-3701-5b0c-9a16-15d98fcdc6aa"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+LogExpFunctions = "2ab3a3ac-af41-5b50-aa03-7779005ae688"
+ShiftedArrays = "1277b4bf-5013-50f5-be3d-901d8477a67a"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+StatsFuns = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
+Turing = "fce5fe82-541a-59a6-adf8-730c64b5f9a0"
 
 [compat]
-julia = "1.10.10"
+AlgebraOfGraphics = "0.12"
+Aqua = "0.8.14"
+CairoMakie = "0.15.8"
+Chain = "1.0.0"
+Combinatorics = "1.1.0"
+DataFrames = "1.8.1"
+Dates = "1.11.0"
+Distributions = "0.25.123 - 0.25.125"
+LinearAlgebra = "1.12.0"
+LogExpFunctions = "0.3.29"
+ShiftedArrays = "2.0.0"
+Statistics = "1.11.1"
+StatsFuns = "1.5"
+Test = "1.11.0"
+Turing = "0.40 - 0.45"
+julia = "1.10"
 
 [extras]
 Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"

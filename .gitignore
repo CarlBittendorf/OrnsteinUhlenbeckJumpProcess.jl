@@ -1,1 +1,9 @@
 /Manifest*.toml
+
+.DS_Store
+.vscode
+
+analysis/data
+analysis/figures
+analysis/models
+analysis/paper
