@@ -1,6 +1,6 @@
 # Context Matters: Extending the Ornstein–Uhlenbeck Process of Affect Dynamics with Event‑Based Jumps
 
-[![Build Status](https://github.com/Carl Bittendorf/OrnsteinUhlenbeckJumpProcess.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/Carl Bittendorf/OrnsteinUhlenbeckJumpProcess.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Build Status](https://github.com/CarlBittendorf/OrnsteinUhlenbeckJumpProcess.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/CarlBittendorf/OrnsteinUhlenbeckJumpProcess.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
 
 Julia implementation of a hierarchical Ornstein-Uhlenbeck process with event-based jumps for modeling affect dynamics.
@@ -23,7 +23,7 @@ The package provides three hierarchical Bayesian models:
 
 ## Installation
 
-Follow the instructions on [https://julialang.org/install/](https://julialang.org/install/) to download and install Julia (if you have not already).
+Follow the instructions on [https://julialang.org/install](https://julialang.org/install) to download and install Julia (if you have not already).
 
 You can then install this package with the following command:
 
