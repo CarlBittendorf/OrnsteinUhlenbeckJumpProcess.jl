@@ -84,7 +84,7 @@ julia> summarize_parameters(df)
 function summarize_parameters(df)
     df_hpd = @chain df begin
         # convert DataFrame back to Chains
-        Chains(Array(_), names(_))
+        MCMCChains.Chains(Array(_), names(_))
 
         # calculate the highest posterior density interval for each parameter
         hpd

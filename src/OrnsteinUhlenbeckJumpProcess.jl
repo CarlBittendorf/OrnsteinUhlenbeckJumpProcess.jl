@@ -1,7 +1,7 @@
 module OrnsteinUhlenbeckJumpProcess
 
-using Chain, DataFrames, Turing, Distributions, StatsFuns, LogExpFunctions, ShiftedArrays,
-      Combinatorics, AlgebraOfGraphics, CairoMakie
+using Chain, DataFrames, Turing, Distributions, MCMCChains, StatsFuns, LogExpFunctions,
+      ShiftedArrays, Combinatorics, AlgebraOfGraphics, CairoMakie
 using Dates, Statistics, LinearAlgebra
 
 include("utils.jl")
