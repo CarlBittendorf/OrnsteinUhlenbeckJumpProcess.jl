@@ -24,7 +24,7 @@ Turing = "fce5fe82-541a-59a6-adf8-730c64b5f9a0"
 
 [compat]
 AlgebraOfGraphics = "0.12"
-Aqua = "0.8.14"
+Aqua = "0.8.18"
 CairoMakie = "0.15.8"
 Chain = "1.0.0"
 Combinatorics = "1.1.0"
