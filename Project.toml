@@ -23,7 +23,7 @@ StatsFuns = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
 Turing = "fce5fe82-541a-59a6-adf8-730c64b5f9a0"
 
 [compat]
-AlgebraOfGraphics = "0.12"
+AlgebraOfGraphics = "0.12, 0.13"
 Aqua = "0.8.18"
 CairoMakie = "0.15.8"
 Chain = "1.0.0"
