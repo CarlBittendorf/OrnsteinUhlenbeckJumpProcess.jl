@@ -20,8 +20,8 @@ as a default for the initial lag) and converts the resulting time deltas to
 hours.
 
 # Arguments
-- `x::AbstractVector`: A vector of `DateTime`, `Date`, or other
-  `Dates.Period`-compatible values.
+- `x::AbstractVector`: A vector of `DateTime` values, or other values whose
+  pairwise differences are `Dates.Millisecond`s.
 
 # Returns
 - `Vector{Float64}`: A vector where each entry represents the number of hours
@@ -32,6 +32,8 @@ hours.
   element with its predecessor.
 - `Dates.value` converts the resulting `Millisecond` differences into integers.
 - Dividing by `3_600_000` converts milliseconds to hours.
+- Differences of other period types, such as `Dates.Day` differences of `Date`
+  values, are not converted correctly.
 
 # Example
 ```julia

@@ -54,8 +54,8 @@ index columns.
   `"parameter[index]"`.
 
 # Returns
-- `DataFrame`: A summary with the columns `:Parameter`, `:Index`, `:Median`,
-  `:Lower`, and `:Upper`.
+- `DataFrame`: A summary with the columns `:Parameter`, `:Median`, `:Lower`,
+  `:Upper`, and `:Index`.
 
 # Details
 - Converts `df` to a `Chains` object to calculate highest posterior density
@@ -66,19 +66,23 @@ index columns.
   index `2`.
 
 # Example
-```julia
+```jldoctest
+julia> using OrnsteinUhlenbeckJumpProcess, DataFrames, StableRNGs;
+
+julia> rng = StableRNG(1);
+
 julia> df = DataFrame(
-           Symbol("beta[1]") => randn(1_000),
-           Symbol("beta[2]") => randn(1_000)
+           Symbol("beta[1]") => randn(rng, 1_000),
+           Symbol("beta[2]") => randn(rng, 1_000)
        );
 
 julia> summarize_parameters(df)
 2×5 DataFrame
- Row │ Parameter  Index  Median     Lower      Upper
-     │ String     Int64  Float64    Float64    Float64
-─────┼──────────────────────────────────────────────────
-   1 │ beta           1  0.012      -1.95       1.94
-   2 │ beta           2  0.008      -1.91       1.97
+ Row │ Parameter  Median     Lower     Upper    Index
+     │ String     Float64    Float64   Float64  Int64
+─────┼────────────────────────────────────────────────
+   1 │ beta       0.0297674  -1.89686  1.9341       1
+   2 │ beta       0.054809   -1.77497  2.03375      2
 ```
 """
 function summarize_parameters(df)
@@ -100,7 +104,8 @@ function summarize_parameters(df)
         combine(All() .=> median; renamecols = false)
 
         # stack the DataFrame so that each parameter and its median correspond to one row
-        stack
+        # (qualified to avoid the ambiguity with Base.stack on older DataFrames versions)
+        DataFrames.stack
         rename([:Parameter, :Median])
 
         # add highest posterior density intervals
@@ -184,21 +189,25 @@ pairwise group comparison within each parameter.
   parameter, not necessarily the parsed group indices.
 
 # Example
-```julia
+```jldoctest
+julia> using OrnsteinUhlenbeckJumpProcess, DataFrames, StableRNGs;
+
+julia> rng = StableRNG(1);
+
 julia> df = DataFrame(
-           Symbol("group_effect[1]") => randn(1_000),
-           Symbol("group_effect[2]") => randn(1_000) .+ 1,
-           Symbol("group_effect[3]") => randn(1_000) .+ 2
+           Symbol("group_effect[1]") => randn(rng, 1_000),
+           Symbol("group_effect[2]") => randn(rng, 1_000) .+ 1,
+           Symbol("group_effect[3]") => randn(rng, 1_000) .+ 2
        );
 
 julia> compare_groups(df)
 3×4 DataFrame
  Row │ Parameter     IndexA  IndexB  PosteriorDirectionalError
      │ String        Int64   Int64   Float64
-─────┼──────────────────────────────────────────────────────────
-   1 │ group_effect       1       2                      0.24
-   2 │ group_effect       1       3                      0.08
-   3 │ group_effect       2       3                      0.23
+─────┼─────────────────────────────────────────────────────────
+   1 │ group_effect       1       2                      0.222
+   2 │ group_effect       1       3                      0.07
+   3 │ group_effect       2       3                      0.231
 ```
 """
 function compare_groups(df)

@@ -35,10 +35,12 @@ density plot, with separate colors for each chain.
 - Colors distinguish the individual chains.
 
 # Example
-```julia
-julia> figure = draw_chains(chains, 10:20)
+```jldoctest
+julia> using OrnsteinUhlenbeckJumpProcess, MCMCChains, StableRNGs;
 
-julia> figure = draw_chains(chains, 5)
+julia> chains = Chains(randn(StableRNG(1), 100, 12, 2));
+
+julia> figure = draw_chains(chains, 5);
 ```
 """
 function draw_chains(chains, indices)
