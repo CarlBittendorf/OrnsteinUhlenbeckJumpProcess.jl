@@ -28,7 +28,7 @@ from its predecessor.
 | `Δt` | Hours elapsed since the preceding node of the same subject; `0` at series starts. Compute with `hours_elapsed`. |
 | `is_transition` | `is_transition[i] == false` initializes node `i` from its stationary distribution. |
 | `z_obs` | Observed values on the unit interval (0, 1). |
-| `M⁺`, `M⁻` | Positive and negative impulse magnitudes in [0, 0.01] (jump model only). |
+| `M⁺`, `M⁻` | Positive and negative impulse magnitudes in $[0, 0.01]$ (jump model only). |
 | `Δτ` | Time from the preceding node to the impulse (jump model only). |
 | `e` | Binary event indicator per observation (event model only). |
 

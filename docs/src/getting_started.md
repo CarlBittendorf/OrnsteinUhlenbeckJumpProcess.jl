@@ -40,7 +40,7 @@ distribution. Three conventions apply to every model:
   original rating scale.
 - Time differences are measured in **hours** and are computed from the
   preceding node of the same subject.
-- Event magnitudes (jump model) are scaled to [0, 0.01], so that the
+- Event magnitudes (jump model) are scaled to $[0, 0.01]$, so that the
   reactivity parameters can be read as percentage points of affect change.
 
 See [Models](@ref) for the full conventions and the likelihood of each model.

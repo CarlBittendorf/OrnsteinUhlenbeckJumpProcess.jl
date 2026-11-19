@@ -18,7 +18,7 @@ New models follow the structure of the existing ones:
    posterior geometry friendly for gradient-based samplers.
 3. **Follow the shared data conventions.** Observations live on the unit
    interval, time differences are measured in hours, and event magnitudes are
-   scaled to [0, 0.01]; see [Models](@ref).
+   scaled to $[0, 0.01]$; see [Models](@ref).
 4. **Provide a `clean_parameters` method.** Dispatch on the model *function*,
    `clean_parameters(::typeof(NewModel), chains, args)`, and return a
    `DataFrame` with one column per interpretable parameter. Reconstruct

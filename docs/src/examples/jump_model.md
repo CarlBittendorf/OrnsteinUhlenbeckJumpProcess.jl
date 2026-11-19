@@ -8,7 +8,7 @@ parts.
 ## Simulating event-related jumps
 
 Each node carries the magnitude of the positive or negative event associated
-with it, scaled to [0, 0.01], and the time between the preceding node and the
+with it, scaled to $[0, 0.01]$, and the time between the preceding node and the
 event. We draw observations from a data-generating model with the default
 priors:
 
