@@ -2,6 +2,7 @@
 
 [![Build Status](https://github.com/CarlBittendorf/OrnsteinUhlenbeckJumpProcess.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/CarlBittendorf/OrnsteinUhlenbeckJumpProcess.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
+[![Documentation](https://img.shields.io/badge/docs-online-blue.svg)](https://carlbittendorf.github.io/OrnsteinUhlenbeckJumpProcess.jl/)
 
 Julia implementation of a hierarchical Ornstein-Uhlenbeck process with event-based jumps for modeling affect dynamics.
 
@@ -30,7 +31,7 @@ You can then install this package with the following command:
 ```julia
 using Pkg
 
-Pkg.add("https://github.com/CarlBittendorf/OrnsteinUhlenbeckJumpProcess.jl")
+Pkg.add(url = "https://github.com/CarlBittendorf/OrnsteinUhlenbeckJumpProcess.jl")
 ```
 
 ## Usage
@@ -63,6 +64,8 @@ Use theoretical scale endpoints rather than sample-specific minima and maxima wh
 ### Model Fitting
 
 Construct aligned vectors for the observations, hierarchical indices, elapsed times, and event information. See the analysis directory, especially analysis/src/fitting, for an example of how to generate these vectors from a DataFrame.
+
+The compiled `ReverseDiff` backend in the example below is optional; install it with `Pkg.add("ReverseDiff")` before running the code.
 
 ```julia
 using OrnsteinUhlenbeckJumpProcess, Turing, ReverseDiff, StableRNGs

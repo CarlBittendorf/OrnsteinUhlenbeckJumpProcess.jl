@@ -1,6 +1,5 @@
 using OrnsteinUhlenbeckJumpProcess, Chain, DataToolkit, DataFrames, Turing, ReverseDiff,
-      StableRNGs, StatsFuns, ParetoSmooth, AlgebraOfGraphics, CairoMakie, CSV, JLD2,
-      Combinatorics, SummaryTables
+      StableRNGs, ParetoSmooth, AlgebraOfGraphics, CairoMakie, CSV, JLD2, SummaryTables
 using Dates, Statistics, Random
 
 include("src/utils.jl")

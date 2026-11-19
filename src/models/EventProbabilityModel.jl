@@ -42,12 +42,14 @@ parameterization.
 - Each event is modeled independently using `BernoulliLogit`.
 
 # Example
-```julia
+```jldoctest
+julia> using OrnsteinUhlenbeckJumpProcess;
+
 julia> model = EventProbabilityModel(;
-           group_indices = group_indices,
-           subject_indices = subject_indices,
-           e = e
-       )
+           group_indices = [1, 2],
+           subject_indices = [1, 2, 1, 2],
+           e = [1, 0, 0, 1]
+       );
 ```
 """
 @model function EventProbabilityModel(; group_indices, subject_indices, e, kwargs...)

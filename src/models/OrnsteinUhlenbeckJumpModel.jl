@@ -65,17 +65,19 @@ exponentially decaying impulses.
 - Observations are modeled jointly with Gaussian observation noise.
 
 # Example
-```julia
+```jldoctest
+julia> using OrnsteinUhlenbeckJumpProcess;
+
 julia> model = OrnsteinUhlenbeckJumpModel(;
-           group_indices = group_indices,
-           subject_indices = subject_indices,
-           z_obs = z_obs,
-           Δt = Δt,
-           M⁺ = M⁺,
-           M⁻ = M⁻,
-           Δτ = Δτ,
-           is_transition = is_transition
-       )
+           group_indices = [1, 1],
+           subject_indices = [1, 1, 2, 2],
+           z_obs = [0.5, 0.6, 0.7, 0.4],
+           Δt = [0.0, 1.0, 0.0, 2.0],
+           M⁺ = [0.005, 0.005, 0.003, 0.002],
+           M⁻ = [0.001, 0.0, 0.002, 0.001],
+           Δτ = [0.0, 0.5, 0.0, 1.0],
+           is_transition = [false, true, false, true]
+       );
 ```
 """
 @model function OrnsteinUhlenbeckJumpModel(;

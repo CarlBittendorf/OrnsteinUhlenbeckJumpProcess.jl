@@ -5,14 +5,6 @@ end
 
 enumerate_days(x) = Dates.value.(Date.(x) .- Date(minimum(x))) .+ 1
 
-function hat(x)
-    if length(x) == 1
-        return x * '̂'
-    else
-        return join([first(x), '̂', x[collect(eachindex(x))[2:end]]...])
-    end
-end
-
 mean_analysis(column) = (Concat(mean(column), " (", std(column), ")") => "Mean (SD)",)
 
 function extrema_analysis(column)
