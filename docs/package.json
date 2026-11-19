@@ -1,4 +1,7 @@
 {
+  "name": "docs",
+  "version": "1.0.0",
+  "private": true,
   "devDependencies": {
     "@types/node": "^25.3.5",
     "@types/markdown-it-footnote": "^3.0.4"
@@ -9,13 +12,18 @@
     "docs:preview": "julia --project=. preview.jl"
   },
   "dependencies": {
-    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.2",
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "2.18.2",
     "@mathjax/src": "^4.1.2",
     "@mdit/plugin-mathjax": "^0.26.1",
     "@mdit/plugin-tex": "^0.24.1",
     "markdown-it-footnote": "^4.0.0",
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^14.3.3",
     "vitepress": "^1.6.4",
     "vitepress-plugin-tabs": "^0.8.0"
+  },
+  "overrides": {
+    "vite": "6.4.6",
+    "glob": "^14.0.6",
+    "minimatch": "^11.0.9"
   }
 }
