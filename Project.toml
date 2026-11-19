@@ -1,6 +1,6 @@
 name = "OrnsteinUhlenbeckJumpProcess"
 uuid = "38ede3fc-707d-4fe7-b48f-4e14e7125ac2"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["Carl Bittendorf <carl.bittendorf@gmail.com> and contributors"]
 
 [workspace]

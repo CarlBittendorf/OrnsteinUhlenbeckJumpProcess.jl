@@ -1,0 +1,53 @@
+# Sample workflow for building and deploying a VitePress site to GitHub Pages
+#
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+    tags: ['*']
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+      statuses: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: julia-actions/setup-julia@v3
+        with:
+          version: '1.11'
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - uses: julia-actions/cache@v3
+
+      - name: Install documentation frontend dependencies
+        working-directory: docs
+        run: npm install
+
+      - name: Instantiate docs environment
+        run: |
+          julia --project=docs -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate(); Pkg.precompile()'
+
+      - name: Build documentation
+        run: julia --project=docs docs/make.jl
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
+          GKSwstype: '100' # headless graphics for CairoMakie figures
+
